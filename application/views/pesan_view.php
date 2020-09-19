@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chat</title>
     <link rel="stylesheet" href="assets/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="<?php echo base_url('assets/style.css') ?>">
 </head>
 
 <body>
@@ -16,7 +16,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tempatnya" id="turun">
-
                 </div>
                 <!-- input chat -->
                 <?php
@@ -33,14 +32,9 @@
                 </div>
                 <!-- End input chat -->
 
-
             </div>
         </div>
     </div>
-
-
-
-
 
     <script src="assets/jquery.min.js"></script>
     <script src="assets/pusher.min.js"></script>
@@ -50,6 +44,7 @@
         $(document).ready(function() {
             // CALL FUNCTION SHOW PRODUCT
             tempatnya();
+            var notif = $(`<audio id="audi" src="<?php echo base_url('assets/alan.mp3') ?>" controls autoplay></audio>`).appendTo('body');
             // Enable pusher logging - don't include this in production
             Pusher.logToConsole = true;
 
@@ -66,6 +61,7 @@
                         scrollTop: $(
                             '.tempatnya').get(0).scrollHeight
                     }, 500);
+                    $(notif)[0].play();
                 }
             });
 
